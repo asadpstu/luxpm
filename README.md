@@ -21,4 +21,4 @@ https://github.com/luxpmsoft/coding_test_luxpm
 - 9. Please follow the code structure within the framework I have shared with you.[DONE]
 
 
-#### I Didn't write any integration test or unit testing as it was not indicated.
+#### I Didn't write any integration test or unit test as it was not indicated in the coding challange.
