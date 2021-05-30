@@ -1,0 +1,241 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "luxPM",
+        "description": "luxPM Coding Challenge",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:5000",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "User",
+            "description": "For creating user information and user authentication"
+        },
+        {
+            "name": "Python-Functionality",
+            "description": "For String Operation"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/signup": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/createUser"
+                        },
+                        "description" : "80085 is the code. Its hardcoded. Please Use postman for end point testing."
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/signin": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/signin"
+                        },
+                        "description" : "Please Use postman for end point testing."
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/signout": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/account/get": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "x-access-token",
+                        "in": "header",
+                        "schema": {
+                            "$ref": "#/definitions/Token"
+                        },
+                        "description" : "x-access-token inside header. Please Use postman for end point testing."
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/account/updateNickname": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/updatenickname"
+                        },
+                        "description" : "Please Use postman for end point testing."
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/get/pythonScript": {
+            "get": {
+                "tags": [
+                    "Python-Functionality"
+                ],
+                "parameters": [
+                    {
+                        "name": "x-access-token",
+                        "in": "header",
+                        "schema": {
+                            "$ref": "#/definitions/Token"
+                        },
+                        "description" : "x-access-token inside header.Please Use postman for end point testing."
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "createUser": {
+            "required": [
+                "firstname",
+                "lastname",
+                "code",
+                "email",
+                "password"
+            ],
+            "properties": {
+                "firstname": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "integer"
+                },
+                "email":{
+                    "type" : "string"
+                },
+                "password" : {
+                    "type" : "string"
+                }
+            }
+        },
+        "signin": {
+            "required": [
+                "email",
+                "hash"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "hash": {
+                    "type": "string"
+                }
+            }
+        },
+        "Token": {
+            "required": [
+                "Authorization"
+            ],
+            "properties": {
+                "Authorization": {
+                    "type": "string"
+                }
+            }
+        },
+        "updatenickname": {
+            "required": [
+                "email",
+                "nickname"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "nickname": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
