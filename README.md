@@ -3,6 +3,7 @@
 - git clone
 - npm install
 - create .env file inside root directory. See .env.example for better understanding
+- make sure your mysql database is up and running
 - For using nodemone : npm run server  
 - For normal app start :  npm start
 
